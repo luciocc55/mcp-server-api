@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { createMCPClient } from "./mcp-client.js";
-import { MCPClientConfig } from "./types";
+import { MCPClientConfig } from "./types.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // Store MCP client instances
-const mcpClients = new Map<string, any>();
+const mcpClients = new Map();
 
 // Health check endpoint
 app.get("/health", (req, res) => {
@@ -159,7 +159,7 @@ app.get("/mcp/servers", (req, res) => {
 // Error handling middleware
 app.use(
   (
-    err: any,
+    err: Error,
     req: express.Request,
     res: express.Response,
     next: express.NextFunction
@@ -172,7 +172,6 @@ app.use(
 // Graceful shutdown
 process.on("SIGTERM", async () => {
   console.log("Received SIGTERM, shutting down gracefully...");
-
   // Disconnect all MCP clients
   for (const [serverId, client] of mcpClients) {
     try {
@@ -182,10 +181,10 @@ process.on("SIGTERM", async () => {
       console.error(`Error disconnecting from ${serverId}:`, error);
     }
   }
-
   process.exit(0);
 });
 
-app.listen(PORT, () => {
+// Start server
+app.listen(Number(PORT), "0.0.0.0", () => {
   console.log(`MCP Server running on port ${PORT}`);
 });
