@@ -11,9 +11,7 @@ services:
       - key: PORT
         value: 3000
     healthCheckPath: /health
-    # Auto-deploy from GitHub (optional)
-    # repo: https://github.com/yourusername/your-repo-name
-    # branch: main
+    workingDir: /opt/render/project
     disk:
       name: mcp-data
       mountPath: /app/data
