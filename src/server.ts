@@ -130,7 +130,7 @@ app.get("/mcp/:serverId/resources", async (req, res) => {
 app.get("/mcp/:serverId/resources/*", async (req, res) => {
   try {
     const { serverId } = req.params;
-    const resourceUri = req.params[0]; // Get the wildcard part
+    const resourceUri = req.params; // Get the wildcard part
 
     const client = mcpClients.get(serverId);
 
