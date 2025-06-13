@@ -157,7 +157,7 @@ class MCPClient {
   }
 }
 
-export default async function createMCPClient(
+export async function createMCPClient(
   config: MCPClientConfig
 ): Promise<MCPClient> {
   const client = new MCPClient(config);

@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import createMCPClient from "./mcp-client";
+import { createMCPClient } from "./mcp-client.js";
 import { MCPClientConfig } from "./types";
 
 const app = express();
