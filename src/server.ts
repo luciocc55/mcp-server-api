@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
-import { createMCPClient } from "./mcp-client.js";
-import { MCPClientConfig } from "./types.js";
+import { createMCPClient } from "./mcp-client";
+import { MCPClientConfig } from "./types";
 
 const app = express();
 const PORT = process.env.PORT || 3000;

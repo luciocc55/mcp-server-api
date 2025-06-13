@@ -7,6 +7,5 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-    healthCheckPath: /health
     autoDeploy: true
     plan: free

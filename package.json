@@ -2,13 +2,12 @@
   "name": "mcp-server-api",
   "version": "1.0.0",
   "description": "Express server that provides REST API for MCP clients",
-  "main": "dist/server.js",
-  "type": "module",
+  "main": "server.js",
   "scripts": {
-    "build": "npm run clean && tsc",
-    "start": "node dist/server.js",
-    "dev": "tsx watch src/server.ts",
-    "clean": "rimraf dist"
+    "start": "npm run build  && npm run serve",
+    "serve": "node build/server.js",
+    "build": "npm run build-ts",
+    "build-ts": "tsc"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.2",
