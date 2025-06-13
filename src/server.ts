@@ -4,7 +4,7 @@ import { createMCPClient } from "./mcp-client";
 import { MCPClientConfig } from "./types";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors());
@@ -185,6 +185,6 @@ process.on("SIGTERM", async () => {
 });
 
 // Start server
-app.listen(Number(PORT), "0.0.0.0", () => {
-  console.log(`MCP Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`);
 });
