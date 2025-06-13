@@ -2,7 +2,7 @@
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { Tool, Resource } from "@modelcontextprotocol/sdk/types.js";
-import { MCPClientConfig } from "./types";
+import { MCPClientConfig } from "./types.js";
 
 class MCPClient {
   private client: Client;
